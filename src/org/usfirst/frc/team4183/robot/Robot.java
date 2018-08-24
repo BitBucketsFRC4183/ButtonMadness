@@ -8,8 +8,43 @@
 package org.usfirst.frc.team4183.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+/**
+ * *****************************************************************************
+ * *****************************************************************************
+ * *****************************************************************************
+ * BIT BUCKETS: This example creates a single joystick (controller) instance
+ * to allow access to buttons that we will map to commands that drive a subsystem
+ * The PURPOSE of this example is to demonstrate the potential conflicts of using
+ * this built-in mapping facility. We will have another project that demonstrates
+ * one way of preventing the conflicts.
+ * 
+ * The controls for this demo will NOT be using definitions from the previously
+ * created Operator Interface (OI) used for other Bit Bucket projects. The OI 
+ * creates the driver and operator controllers in a way that hides the interfaces
+ * that have caused problems.
+ * 
+ * Yes, we are intentionally writing this code to demonstrate the problems.
+ * 
+ * The control will be defined as follows:
+ * 
+ * 		The POV buttons on the left side of a PS4 controller will be used to
+ * 		command FORWARD, BACKWARD, LEFT, and RIGHT drive.
+ * 
+ * 		The buttons will be mapped to Commands that drive a Subsystem to go
+ * 		FORWARD, BACKWARD, LEFT, RIGHT, and STOP. The drive speed will be a fixed
+ * 		number just to keep the demo simple.
+ * 
+ * *****************************************************************************
+ * *****************************************************************************
+ * *****************************************************************************
+ */
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,7 +58,15 @@ public class Robot extends IterativeRobot {
 	private static final String kCustomAuto = "My Auto";
 	private String m_autoSelected;
 	private SendableChooser<String> m_chooser = new SendableChooser<>();
-
+	
+	public static DriveSubsystem driveSubsystem;
+	
+	private Joystick controller;
+	private Button forward;
+	private Button backward;
+	private Button right;
+	private Button left;
+	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -33,6 +76,26 @@ public class Robot extends IterativeRobot {
 		m_chooser.addDefault("Default Auto", kDefaultAuto);
 		m_chooser.addObject("My Auto", kCustomAuto);
 		SmartDashboard.putData("Auto choices", m_chooser);
+		
+		driveSubsystem = new DriveSubsystem();
+		controller = new Joystick(0);	// MAGIC NUMBERS are evil
+		
+		forward  = new JoystickButton(controller, PS4Constants.TRIANGLE.getValue());
+		backward = new JoystickButton(controller, PS4Constants.CROSS.getValue());
+		right    = new JoystickButton(controller, PS4Constants.CIRCLE.getValue());
+		left     = new JoystickButton(controller, PS4Constants.SQUARE.getValue());
+		
+		forward.whenPressed(new MoveForward());
+		forward.whenReleased(new Stop());
+		
+		backward.whenPressed(new MoveBackward());
+		backward.whenReleased(new Stop());
+		
+		right.whenPressed(new TurnRight());
+		right.whenReleased(new Stop());
+		
+		left.whenPressed(new TurnLeft());
+		left.whenReleased(new Stop());
 	}
 
 	/**
