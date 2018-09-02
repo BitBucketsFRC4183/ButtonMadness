@@ -81,10 +81,10 @@ public class Robot extends IterativeRobot {
 		driveSubsystem = new DriveSubsystem();
 		controller = new Joystick(0);	// MAGIC NUMBERS are evil
 		
-		forward  = new JoystickButton(controller, 4); //4PS4Constants.TRIANGLE.getValue());
-		backward = new JoystickButton(controller, 2); //3PS4Constants.CROSS.getValue());
-		right    = new JoystickButton(controller, 3); //1PS4Constants.CIRCLE.getValue());
-		left     = new JoystickButton(controller, 1); //2PS4Constants.SQUARE.getValue());
+		forward  = new JoystickButton(controller, PS4Constants.TRIANGLE.getValue());
+		backward = new JoystickButton(controller, PS4Constants.CROSS.getValue());
+		right    = new JoystickButton(controller, PS4Constants.CIRCLE.getValue());
+		left     = new JoystickButton(controller, PS4Constants.SQUARE.getValue());
 		
 		forward.whenPressed(new MoveForward());
 		forward.whenReleased(new Stop());
