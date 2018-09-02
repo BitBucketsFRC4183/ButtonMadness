@@ -1,4 +1,4 @@
-package org.usfirst.frc.team4183.robot;
+package frc.robot;
 
 // These constants should be used in place of literals
 public enum PS4Constants {

@@ -1,13 +1,13 @@
-package org.usfirst.frc.team4183.robot;
+package frc.robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class TurnRight extends Command {
+public class Stop extends Command {
 
-    public TurnRight() {
+    public Stop() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveSubsystem);
@@ -15,11 +15,12 @@ public class TurnRight extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        System.out.printf("Stop\n");
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveSubsystem.turnRight();
+    	Robot.driveSubsystem.stop();
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -1,9 +1,9 @@
-package org.usfirst.frc.team4183.robot;
+package frc.robot;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+//import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-
+import edu.wpi.first.wpilibj.Talon;
 /**
  *
  */
@@ -13,17 +13,17 @@ public class DriveSubsystem extends Subsystem {
     // here. Call these from Commands.
 	
 	// Create some motor controllers for this subsystem
-	private WPI_TalonSRX leftFront;
-	private WPI_TalonSRX leftRear;
-	private WPI_TalonSRX rightFront;
-	private WPI_TalonSRX rightRear;
+	private Talon leftFront;
+	private Talon leftRear;
+	private Talon rightFront;
+	private Talon rightRear;
 	
 	public DriveSubsystem()
 	{
-		leftFront = new WPI_TalonSRX(11);	// MAGIC NUMBERS are evil
-		leftRear = new WPI_TalonSRX(12);
-		rightFront = new WPI_TalonSRX(13);
-		rightRear = new WPI_TalonSRX(14);
+		leftFront  = new Talon(11);	// MAGIC NUMBERS are evil
+		leftRear   = new Talon(12);
+		rightFront = new Talon(13);
+		rightRear  = new Talon(14);
 	}
 	
     public void initDefaultCommand() 

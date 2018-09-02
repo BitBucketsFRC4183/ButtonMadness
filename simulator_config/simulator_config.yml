@@ -1,0 +1,60 @@
+!!com.snobot.simulator.config.SimulatorConfig
+mAccelerometers: []
+mAnalogIO: []
+mDefaultI2CWrappers: {}
+mDefaultSpiWrappers: {}
+mDigitalIO: []
+mEncoders: []
+mGyros: []
+mPwm:
+- mHandle: 11
+  mMotorModelConfig:
+    mGearReduction: 1.0
+    mGearboxEfficiency: 1.0
+    mHasBrake: false
+    mInverted: false
+    mMotorType: CIM
+    mNumMotors: 1
+  mMotorSimConfig: !!com.snobot.simulator.motor_sim.StaticLoadMotorSimulationConfig
+    mConversionFactor: 1.0
+    mLoad: 0.0
+  mName: Left Front (11)
+- mHandle: 12
+  mMotorModelConfig:
+    mGearReduction: 1.0
+    mGearboxEfficiency: 1.0
+    mHasBrake: false
+    mInverted: false
+    mMotorType: CIM
+    mNumMotors: 1
+  mMotorSimConfig: !!com.snobot.simulator.motor_sim.StaticLoadMotorSimulationConfig
+    mConversionFactor: 1.0
+    mLoad: 0.0
+  mName: Left Rear (12)
+- mHandle: 13
+  mMotorModelConfig:
+    mGearReduction: 1.0
+    mGearboxEfficiency: 1.0
+    mHasBrake: false
+    mInverted: false
+    mMotorType: CIM
+    mNumMotors: 1
+  mMotorSimConfig: !!com.snobot.simulator.motor_sim.StaticLoadMotorSimulationConfig
+    mConversionFactor: 1.0
+    mLoad: 0.0
+  mName: Right Front (13)
+- mHandle: 14
+  mMotorModelConfig:
+    mGearReduction: 1.0
+    mGearboxEfficiency: 1.0
+    mHasBrake: false
+    mInverted: false
+    mMotorType: CIM
+    mNumMotors: 1
+  mMotorSimConfig: !!com.snobot.simulator.motor_sim.StaticLoadMotorSimulationConfig
+    mConversionFactor: 1.0
+    mLoad: 0.0
+  mName: Right Rear (14)
+mRelays: []
+mSimulatorComponents: []
+mSolenoids: []

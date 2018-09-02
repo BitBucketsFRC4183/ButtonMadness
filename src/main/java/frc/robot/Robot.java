@@ -5,12 +5,13 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team4183.robot;
+package frc.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -80,10 +81,10 @@ public class Robot extends IterativeRobot {
 		driveSubsystem = new DriveSubsystem();
 		controller = new Joystick(0);	// MAGIC NUMBERS are evil
 		
-		forward  = new JoystickButton(controller, PS4Constants.TRIANGLE.getValue());
-		backward = new JoystickButton(controller, PS4Constants.CROSS.getValue());
-		right    = new JoystickButton(controller, PS4Constants.CIRCLE.getValue());
-		left     = new JoystickButton(controller, PS4Constants.SQUARE.getValue());
+		forward  = new JoystickButton(controller, 4); //4PS4Constants.TRIANGLE.getValue());
+		backward = new JoystickButton(controller, 2); //3PS4Constants.CROSS.getValue());
+		right    = new JoystickButton(controller, 3); //1PS4Constants.CIRCLE.getValue());
+		left     = new JoystickButton(controller, 1); //2PS4Constants.SQUARE.getValue());
 		
 		forward.whenPressed(new MoveForward());
 		forward.whenReleased(new Stop());
@@ -138,6 +139,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+		Scheduler.getInstance().run(); // run the commands on deck, now
 	}
 
 	/**
