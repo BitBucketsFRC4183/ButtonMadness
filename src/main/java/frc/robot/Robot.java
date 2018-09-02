@@ -92,11 +92,11 @@ public class Robot extends IterativeRobot {
 		backward.whenPressed(new MoveBackward());
 		backward.whenReleased(new Stop());
 		
-		right.whenPressed(new TurnRight());
-		right.whenReleased(new Stop());
+		right.whileHeld(new TurnRight());
+		//right.whenReleased(new Stop());
 		
-		left.whenPressed(new TurnLeft());
-		left.whenReleased(new Stop());
+		left.whileHeld(new TurnLeft());
+		//.whenReleased(new Stop());
 	}
 
 	/**

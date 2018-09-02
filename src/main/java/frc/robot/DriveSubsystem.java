@@ -1,6 +1,6 @@
 package frc.robot;
 
-//import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Talon;
@@ -17,6 +17,8 @@ public class DriveSubsystem extends Subsystem {
 	private Talon leftRear;
 	private Talon rightFront;
 	private Talon rightRear;
+
+	final double POWER = 1.0;
 	
 	public DriveSubsystem()
 	{
@@ -42,34 +44,34 @@ public class DriveSubsystem extends Subsystem {
     
     public void driveForward()
     {
-    	leftFront.set(0.2);		// More evil MAGIC NUMBERS, but just enough power to move slowly
-    	leftRear.set(0.2);
-    	rightFront.set(0.2);
-    	rightRear.set(0.2);
+    	leftFront.set (POWER);		// More evil MAGIC NUMBERS, but just enough power to move slowly
+    	leftRear.set  (POWER);
+    	rightFront.set(POWER);
+    	rightRear.set (POWER);
     }
     
     public void driveBackward()
     {
-    	leftFront.set(-0.2);
-    	leftRear.set(-0.2);
-    	rightFront.set(-0.2);
-    	rightRear.set(-0.2);    	
+    	leftFront.set (-POWER);
+    	leftRear.set  (-POWER);
+    	rightFront.set(-POWER);
+    	rightRear.set (-POWER);    	
     }
     
     public void turnRight()
     {
-    	leftFront.set(0.2);
-    	leftRear.set(0.2);
-    	rightFront.set(-0.2);
-    	rightRear.set(-0.2);
+    	leftFront.set (POWER);
+    	leftRear.set  (POWER);
+    	rightFront.set(-POWER);
+    	rightRear.set (-POWER);
     }
     
     public void turnLeft()
     {
-    	leftFront.set(-0.2);
-    	leftRear.set(-0.2);
-    	rightFront.set(0.2);
-    	rightRear.set(0.2);
+    	leftFront.set (-POWER);
+    	leftRear.set  (-POWER);
+    	rightFront.set(POWER);
+    	rightRear.set (POWER);
     }
 
 }
