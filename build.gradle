@@ -8,7 +8,7 @@ plugins {
 apply plugin: com.snobot.simulator.plugin.SnobotSimulatorPlugin
 
 snobotSimVersions {
-//    snobotSimVersion = "2018-2.0.0"
+ //   snobotSimVersion = "2018-2.0.0"
 }
 def ROBOT_CLASS = "frc.robot.Robot"
 

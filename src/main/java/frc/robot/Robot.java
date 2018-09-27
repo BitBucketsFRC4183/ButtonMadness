@@ -63,6 +63,7 @@ public class Robot extends IterativeRobot {
 	public static DriveSubsystem driveSubsystem;
 	
 	private Joystick controller;
+
 	private Button forward;
 	private Button backward;
 	private Button right;
@@ -86,6 +87,9 @@ public class Robot extends IterativeRobot {
 		right    = new JoystickButton(controller, PS4Constants.CIRCLE.getValue());
 		left     = new JoystickButton(controller, PS4Constants.SQUARE.getValue());
 		
+		// NOTE NOTE NOTE:
+		// This is a terrible way to drive a robot, but easily demonstrates
+		// the problems with buttons
 		forward.whenPressed(new MoveForward());
 		forward.whenReleased(new Stop());
 		
@@ -93,10 +97,8 @@ public class Robot extends IterativeRobot {
 		backward.whenReleased(new Stop());
 		
 		right.whileHeld(new TurnRight());
-		//right.whenReleased(new Stop());
 		
 		left.whileHeld(new TurnLeft());
-		//.whenReleased(new Stop());
 	}
 
 	/**
